@@ -27,10 +27,10 @@ const Header = () => {
       />
       <nav style={{ marginRight: '15px' }}>
         <span className="nav-full">
-          <Link to="/">Home</Link> | <Link to="/blanko">Blanko</Link> | <Link to="/slido">Slido</Link> | <Link to="/tetro">Tetro</Link> | <Link to="/tictactoe">TicTacToe</Link> | <Link to="/snake">Snake</Link> | <Link to="/minesweeper">Minesweeper</Link> | <Link to="/2048">2048</Link>
+          <Link to="/">Home</Link> | <Link to="/blanko">Blanko</Link> | <Link to="/slido">Slido</Link> | <Link to="/tetro">Tetro</Link> | <Link to="/tictactoe">TicTacToe</Link> | <Link to="/snake">Snake</Link> | <Link to="/minesweeper">Minesweeper</Link> | <Link to="/2048">2048</Link> | <Link to="/hanoi">Hanoi</Link> | <Link to="/math">Math</Link> | <Link to="/memorisation">Memorisation</Link> | <Link to="/treasure">Treasure</Link>
         </span>
         <span className="nav-short">
-          <Link to="/">H</Link> | <Link to="/blanko">B</Link> | <Link to="/slido">S</Link> | <Link to="/tetro">T</Link> | <Link to="/tictactoe">TT</Link> | <Link to="/snake">Sn</Link> | <Link to="/minesweeper">M</Link> | <Link to="/2048">2048</Link>
+          <Link to="/">H</Link> | <Link to="/blanko">B</Link> | <Link to="/slido">S</Link> | <Link to="/tetro">T</Link> | <Link to="/tictactoe">TT</Link> | <Link to="/snake">Sn</Link> | <Link to="/minesweeper">M</Link> | <Link to="/2048">2048</Link> | <Link to="/hanoi">Ha</Link> | <Link to="/math">Ma</Link> | <Link to="/memorisation">Me</Link> | <Link to="/treasure">Tr</Link>
         </span>
       </nav>
     </header>
