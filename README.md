@@ -1,18 +1,45 @@
-# React + Vite
+# 🎮 GameHub — Childhood Games Collection
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A frontend-only web app that brings classic childhood games together in one place, built with React and Vite.
 
-Currently, two official plugins are available:
+## About
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+GameHub is a collection of timeless games you grew up playing — reimagined in the browser with no downloads, no accounts, and no backend required. Every game runs entirely on the client side. A built-in score system tracks your wins across all games, so your progress persists between sessions.
 
-## React Compiler
+## Games
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+| Game | Description |
+|---|---|
+| **Slido** | Classic sliding puzzle |
+| **Tetro** | Tetris-style block stacking |
+| **Tic Tac Toe** | 3×3 up to 9×9 grid, two-player |
+| **Snake** | Eat food, grow longer, don't crash |
+| **Minesweeper** | Clear the field without hitting a mine |
+| **2048** | Merge tiles to reach 2048 |
+| **Tower of Hanoi** | Move the tower in the fewest moves |
+| **Math Game** | Quick mental arithmetic challenges |
+| **Memorisation** | Pattern memory across 5 stages |
+| **Treasure Hunt** | Follow clues to find the treasure |
 
-Note: This will impact Vite dev & build performances.
+## Score System
 
-## Expanding the ESLint configuration
+Wins are recorded globally via `localStorage` under the key `gamesWon`. The running total is displayed in the dashboard so you can track your overall performance across every game.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- **React 19** — functional components, hooks
+- **React Router v7** — client-side routing with `BrowserRouter`
+- **Vite 7** — fast dev server and optimised production build
+- **Pure CSS** — dark theme with CSS custom properties, no UI library
+
+## Live Demo
+
+[lolmantran.github.io/Frontend-Game](https://lolmantran.github.io/Frontend-Game/)
+
+## Run Locally
+
+```bash
+npm install
+npm run dev
+```
+
