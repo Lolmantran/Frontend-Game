@@ -5,12 +5,10 @@ const Game2048 = () => {
   const [score, setScore] = useState(0)
   const [gameOver, setGameOver] = useState(false)
 
-  // Initialize empty board
   const createEmptyBoard = () => {
     return Array(4).fill(null).map(() => Array(4).fill(0))
   }
 
-  // Get random empty cell
   const getRandomEmptyCell = (currentBoard) => {
     const emptyCells = []
     for (let row = 0; row < 4; row++) {
@@ -24,7 +22,6 @@ const Game2048 = () => {
     return emptyCells[Math.floor(Math.random() * emptyCells.length)]
   }
 
-  // Add random tile (2 or 4)
   const addRandomTile = (currentBoard) => {
     const emptyCell = getRandomEmptyCell(currentBoard)
     if (!emptyCell) return currentBoard
@@ -35,7 +32,6 @@ const Game2048 = () => {
     return newBoard
   }
 
-  // Initialize game
   const initializeGame = useCallback(() => {
     let newBoard = createEmptyBoard()
     newBoard = addRandomTile(newBoard)
@@ -45,7 +41,6 @@ const Game2048 = () => {
     setGameOver(false)
   }, [])
 
-  // Check if boards are equal
   const boardsEqual = (board1, board2) => {
     for (let row = 0; row < 4; row++) {
       for (let col = 0; col < 4; col++) {
@@ -54,22 +49,19 @@ const Game2048 = () => {
     }
     return true
   }
-
-  // Move and merge tiles left
+  
   const moveLeft = (currentBoard) => {
     const newBoard = currentBoard.map(row => [...row])
     let moveScore = 0
     let moved = false
 
     for (let row = 0; row < 4; row++) {
-      // Collect non-zero values
       const tiles = newBoard[row].filter(val => val !== 0)
       const merged = []
       let i = 0
 
       while (i < tiles.length) {
         if (i + 1 < tiles.length && tiles[i] === tiles[i + 1]) {
-          // Merge tiles
           const mergedValue = tiles[i] * 2
           merged.push(mergedValue)
           moveScore += mergedValue
@@ -80,12 +72,10 @@ const Game2048 = () => {
         }
       }
 
-      // Fill with zeros
       while (merged.length < 4) {
         merged.push(0)
       }
 
-      // Check if moved
       for (let col = 0; col < 4; col++) {
         if (newBoard[row][col] !== merged[col]) {
           moved = true
@@ -98,7 +88,6 @@ const Game2048 = () => {
     return { board: newBoard, score: moveScore, moved }
   }
 
-  // Rotate board 90 degrees clockwise
   const rotateClockwise = (currentBoard) => {
     const newBoard = createEmptyBoard()
     for (let row = 0; row < 4; row++) {
@@ -109,7 +98,6 @@ const Game2048 = () => {
     return newBoard
   }
 
-  // Rotate board 90 degrees counter-clockwise
   const rotateCounterClockwise = (currentBoard) => {
     const newBoard = createEmptyBoard()
     for (let row = 0; row < 4; row++) {
@@ -120,7 +108,6 @@ const Game2048 = () => {
     return newBoard
   }
 
-  // Move in any direction
   const move = (direction) => {
     if (gameOver) return
 
@@ -150,38 +137,31 @@ const Game2048 = () => {
         return
     }
 
-    // Only update if board changed
     if (result.moved) {
       const newBoard = addRandomTile(result.board)
       setBoard(newBoard)
       setScore(prevScore => prevScore + result.score)
 
-      // Check for win condition
       if (has2048Tile(newBoard)) {
         setTimeout(() => {
           alert('You reached 2048!')
         }, 100)
       }
 
-      // Check for game over
       setTimeout(() => {
         if (isGameOver(newBoard)) {
           const finalScore = score + result.score
           setGameOver(true)
           alert(`Game Over! Final score: ${finalScore}`)
           
-          // Update dashboard tally
           const currentGamesWon = parseInt(localStorage.getItem('gamesWon') || '0', 10)
           localStorage.setItem('gamesWon', (currentGamesWon + 1).toString())
           
-          // Reset game
           initializeGame()
         }
       }, 100)
     }
   }
-
-  // Check if 2048 tile exists
   const has2048Tile = (currentBoard) => {
     for (let row = 0; row < 4; row++) {
       for (let col = 0; col < 4; col++) {
