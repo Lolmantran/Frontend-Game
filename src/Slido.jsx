@@ -170,7 +170,8 @@ const Slido = () => {
       minHeight: 'calc(100vh - 200px)',
       padding: '20px'
     }}>
-      <div 
+      <h1 className="game-title">Slido</h1>
+      <div
         ref={gridRef}
         className="slido-grid"
         tabIndex="0"

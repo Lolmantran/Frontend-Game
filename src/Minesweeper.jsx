@@ -247,6 +247,7 @@ const Minesweeper = () => {
       alignItems: 'center',
       gap: '20px'
     }}>
+      <h1 className="game-title">Minesweeper</h1>
       <div style={{
         display: 'grid',
         gridTemplateColumns: `repeat(${GRID_SIZE}, 40px)`,

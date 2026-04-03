@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './Header.jsx'
 import Footer from './Footer.jsx'
 import Dashboard from './Dashboard.jsx'
-import Blanko from './Blanko.jsx'
 import Slido from './Slido.jsx'
 import Tetro from './Tetro.jsx'
 import TicTacToe from './TicTacToe.jsx'
@@ -22,7 +21,6 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/blanko" element={<Blanko />} />
           <Route path="/slido" element={<Slido />} />
           <Route path="/tetro" element={<Tetro />} />
           <Route path="/tictactoe" element={<TicTacToe />} />

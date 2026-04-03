@@ -169,14 +169,14 @@ const Memorisation = () => {
       alignItems: 'center',
       justifyContent: 'center'
     }}>
-      <h1 style={{ marginBottom: '20px', color: '#000' }}>Memorisation Game</h1>
+      <h1 className="game-title">Memorisation Game</h1>
 
       {/* Stage indicator */}
       <div style={{
         fontSize: '24px',
         fontWeight: 'bold',
         marginBottom: '20px',
-        color: '#000'
+        color: '#a78bfa'
       }}>
         Stage {stage} of 5
       </div>
@@ -189,9 +189,10 @@ const Memorisation = () => {
         {isPlaying && (
           <div style={{
             padding: '8px 16px',
-            backgroundColor: '#e3f2fd',
-            color: '#1976d2',
-            borderRadius: '4px',
+            backgroundColor: 'rgba(6, 182, 212, 0.12)',
+            color: '#67e8f9',
+            border: '1px solid rgba(6, 182, 212, 0.35)',
+            borderRadius: '8px',
             fontSize: '16px'
           }}>
             Watch the sequence...
@@ -200,9 +201,10 @@ const Memorisation = () => {
         {message && (
           <div style={{
             padding: '8px 16px',
-            backgroundColor: '#ffcccc',
-            color: '#cc0000',
-            borderRadius: '4px',
+            backgroundColor: 'rgba(248, 113, 113, 0.12)',
+            color: '#fca5a5',
+            border: '1px solid rgba(248, 113, 113, 0.35)',
+            borderRadius: '8px',
             fontSize: '16px'
           }}>
             {message}
@@ -240,8 +242,9 @@ const Memorisation = () => {
       {/* Progress indicator */}
       <div style={{
         fontSize: '16px',
-        color: '#666',
-        marginBottom: '20px'
+        color: '#a78bfa',
+        marginBottom: '20px',
+        fontWeight: '600'
       }}>
         {!isPlaying && `${userInput.length} / ${sequence.length} clicks`}
       </div>
@@ -252,15 +255,16 @@ const Memorisation = () => {
         style={{
           padding: '10px 25px',
           fontSize: '16px',
-          backgroundColor: '#28a745',
+          background: 'linear-gradient(135deg, #7c3aed, #06b6d4)',
           color: 'white',
           border: 'none',
-          borderRadius: '5px',
+          borderRadius: '8px',
           cursor: 'pointer',
-          fontWeight: 'bold'
+          fontWeight: '600',
+          transition: 'opacity 0.2s'
         }}
-        onMouseOver={(e) => e.target.style.backgroundColor = '#218838'}
-        onMouseOut={(e) => e.target.style.backgroundColor = '#28a745'}
+        onMouseOver={(e) => e.currentTarget.style.opacity = '0.85'}
+        onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
       >
         Reset Game
       </button>

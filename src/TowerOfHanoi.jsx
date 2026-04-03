@@ -127,9 +127,9 @@ const TowerOfHanoi = () => {
       alignItems: 'center',
       justifyContent: 'center'
     }}>
-      <h1 style={{ marginBottom: '20px', color: '#000' }}>Tower of Hanoi</h1>
+      <h1 className="game-title">Tower of Hanoi</h1>
       
-      <div style={{ marginBottom: '10px', fontSize: '18px', fontWeight: 'bold', color: '#000' }}>
+      <div style={{ marginBottom: '10px', fontSize: '18px', fontWeight: 'bold', color: '#a78bfa' }}>
         Moves: {moveCount}
       </div>
 
@@ -137,9 +137,10 @@ const TowerOfHanoi = () => {
         <div style={{
           marginBottom: '10px',
           padding: '8px 16px',
-          backgroundColor: '#ffcccc',
-          color: '#cc0000',
-          borderRadius: '4px',
+          backgroundColor: 'rgba(248, 113, 113, 0.12)',
+          color: '#fca5a5',
+          border: '1px solid rgba(248, 113, 113, 0.35)',
+          borderRadius: '8px',
           fontSize: '14px'
         }}>
           {message}
@@ -162,7 +163,7 @@ const TowerOfHanoi = () => {
               fontSize: '18px',
               fontWeight: 'bold',
               marginBottom: '10px',
-              color: selectedPeg === pegName ? '#007bff' : '#333'
+              color: selectedPeg === pegName ? '#06b6d4' : '#8888aa'
             }}>
               Peg {pegName}
             </div>
@@ -250,15 +251,17 @@ const TowerOfHanoi = () => {
         style={{
           padding: '10px 20px',
           fontSize: '16px',
-          backgroundColor: '#28a745',
+          background: 'linear-gradient(135deg, #7c3aed, #06b6d4)',
           color: 'white',
           border: 'none',
-          borderRadius: '5px',
+          borderRadius: '8px',
           cursor: 'pointer',
-          marginBottom: '20px'
+          fontWeight: '600',
+          marginBottom: '20px',
+          transition: 'opacity 0.2s'
         }}
-        onMouseOver={(e) => e.target.style.backgroundColor = '#218838'}
-        onMouseOut={(e) => e.target.style.backgroundColor = '#28a745'}
+        onMouseOver={(e) => e.currentTarget.style.opacity = '0.85'}
+        onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
       >
         Reset Game
       </button>
@@ -268,7 +271,8 @@ const TowerOfHanoi = () => {
         display: 'flex',
         alignItems: 'center',
         gap: '10px',
-        fontSize: '16px'
+        fontSize: '16px',
+        color: '#e2e2f0'
       }}>
         <label htmlFor="difficulty">Difficulty:</label>
         <select
@@ -278,8 +282,10 @@ const TowerOfHanoi = () => {
           style={{
             padding: '5px 10px',
             fontSize: '16px',
-            borderRadius: '4px',
-            border: '1px solid #ccc',
+            borderRadius: '6px',
+            border: '1px solid rgba(124, 58, 237, 0.4)',
+            background: '#1e1e3a',
+            color: '#e2e2f0',
             cursor: 'pointer'
           }}
         >

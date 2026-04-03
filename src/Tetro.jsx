@@ -214,6 +214,7 @@ const Tetro = () => {
 
   return (
     <div className="main-body">
+      <h1 className="game-title" style={{ paddingTop: '16px' }}>Tetro</h1>
       <div
         onClick={handleBoardClick}
         style={{

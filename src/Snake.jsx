@@ -197,20 +197,15 @@ const Snake = () => {
         const isSnakeBody = snake.slice(1).some(segment => segment.row === row && segment.col === col)
         const isFood = food && food.row === row && food.col === col
 
-        let backgroundColor = '#f0f0f0'
-        if (isSnakeHead) backgroundColor = '#2e7d32'
-        else if (isSnakeBody) backgroundColor = '#4caf50'
-        else if (isFood) backgroundColor = '#f44336'
+        let cellClass = 'snake-cell'
+        if (isSnakeHead) cellClass += ' snake-head'
+        else if (isSnakeBody) cellClass += ' snake-body'
+        else if (isFood) cellClass += ' snake-food'
 
         grid.push(
           <div
             key={`${row}-${col}`}
-            style={{
-              width: CELL_SIZE + 'px',
-              height: CELL_SIZE + 'px',
-              backgroundColor,
-              border: '1px solid #ddd'
-            }}
+            className={cellClass}
           />
         )
       }
@@ -228,21 +223,10 @@ const Snake = () => {
       marginTop: '80px',
       marginBottom: '80px'
     }}>
-      <div style={{
-        marginBottom: '20px',
-        fontSize: '24px',
-        fontWeight: 'bold'
-      }}>
-        Score: {score}
-      </div>
-      
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: `repeat(${GRID_SIZE}, ${CELL_SIZE}px)`,
-        gridTemplateRows: `repeat(${GRID_SIZE}, ${CELL_SIZE}px)`,
-        border: '2px solid #333',
-        backgroundColor: '#fff'
-      }}>
+      <h1 className="game-title">Snake</h1>
+      <p className="game-score">Score: {score}</p>
+
+      <div className="snake-grid-wrap">
         {renderGrid()}
       </div>
 
@@ -253,10 +237,11 @@ const Snake = () => {
           padding: '10px 20px',
           fontSize: '16px',
           cursor: 'pointer',
-          backgroundColor: '#4CAF50',
+          background: 'linear-gradient(135deg, #7c3aed, #06b6d4)',
           color: 'white',
           border: 'none',
-          borderRadius: '4px'
+          borderRadius: '8px',
+          fontWeight: '600'
         }}
       >
         Reset Game

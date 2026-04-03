@@ -260,28 +260,25 @@ const Game2048 = () => {
       justifyContent: 'center',
       padding: '20px'
     }}>
-      <div style={{
-        marginBottom: '20px',
-        fontSize: '24px',
-        fontWeight: 'bold'
-      }}>
-        Score: {score}
-      </div>
+      <h1 className="game-title">2048</h1>
+      <p className="game-score">Score: {score}</p>
 
       <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(4, 100px)',
         gridTemplateRows: 'repeat(4, 100px)',
         gap: '10px',
-        backgroundColor: '#bbada0',
+        backgroundColor: '#1e1b18',
         padding: '10px',
-        borderRadius: '6px',
-        marginBottom: '20px'
+        borderRadius: '10px',
+        marginBottom: '20px',
+        boxShadow: '0 0 32px rgba(6, 182, 212, 0.1), 0 0 0 2px rgba(124, 58, 237, 0.3)'
       }}>
         {board.map((row, rowIndex) =>
           row.map((cell, colIndex) => (
             <div
-              key={`${rowIndex}-${colIndex}`}
+              key={`${rowIndex}-${colIndex}-${cell}`}
+              className={cell !== 0 ? 'tile-new' : ''}
               style={{
                 width: '100px',
                 height: '100px',
@@ -292,8 +289,8 @@ const Game2048 = () => {
                 fontSize: cell >= 1000 ? '28px' : cell >= 100 ? '36px' : '42px',
                 fontWeight: 'bold',
                 color: getTextColor(cell),
-                borderRadius: '3px',
-                transition: 'all 0.1s'
+                borderRadius: '6px',
+                transition: 'background-color 0.12s ease'
               }}
             >
               {cell !== 0 && cell}
@@ -307,16 +304,16 @@ const Game2048 = () => {
         style={{
           padding: '12px 24px',
           fontSize: '16px',
-          fontWeight: 'bold',
-          backgroundColor: '#8f7a66',
-          color: '#f9f6f2',
+          fontWeight: '600',
+          background: 'linear-gradient(135deg, #7c3aed, #06b6d4)',
+          color: 'white',
           border: 'none',
-          borderRadius: '3px',
+          borderRadius: '8px',
           cursor: 'pointer',
-          transition: 'background-color 0.2s'
+          transition: 'opacity 0.2s'
         }}
-        onMouseOver={(e) => e.target.style.backgroundColor = '#9f8a76'}
-        onMouseOut={(e) => e.target.style.backgroundColor = '#8f7a66'}
+        onMouseOver={(e) => e.currentTarget.style.opacity = '0.85'}
+        onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
       >
         Reset Game
       </button>

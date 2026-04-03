@@ -2,11 +2,10 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer style={{
-      height: '50px',
-      width: '100%',
-      backgroundColor: '#999999'
-    }}>
+    <footer className="footer">
+      <span>
+        <span className="footer-accent">GameHub</span> &mdash; {new Date().getFullYear()} &mdash; Built with React
+      </span>
     </footer>
   )
 }

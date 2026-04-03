@@ -82,6 +82,7 @@ const Blanko = () => {
   return (
     <div className="main-body">
       <div className="blanko-container">
+        <h1 className="game-title">Blanko</h1>
         <div className="blanko-boxes">
           {currentString.split('').map((char, index) => (
             <div key={index} className="blanko-box">

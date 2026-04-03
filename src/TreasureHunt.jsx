@@ -179,9 +179,7 @@ const TreasureHunt = () => {
       minHeight: 'calc(100vh - 140px)',
       position: 'relative'
     }}>
-      <h1 style={{ textAlign: 'center', marginBottom: '20px', color: '#000' }}>
-        Treasure Hunt
-      </h1>
+      <h1 className="game-title">Treasure Hunt</h1>
 
       {!gameStarted ? (
         // Setup panel

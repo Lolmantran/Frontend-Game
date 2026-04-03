@@ -110,7 +110,7 @@ const MathGame = () => {
       alignItems: 'center',
       justifyContent: 'center'
     }}>
-      <h1 style={{ marginBottom: '40px', color: '#000' }}>Math Game</h1>
+      <h1 className="game-title">Math Game</h1>
 
       {/* Equation display */}
       <div style={{
