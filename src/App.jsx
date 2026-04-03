@@ -16,7 +16,7 @@ import TreasureHunt from './TreasureHunt.jsx'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Frontend-Game">
       <div style={{ margin: 0 }}>
         <Header />
         <Routes>
