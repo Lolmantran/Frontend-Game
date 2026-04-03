@@ -45,9 +45,8 @@ const Dashboard = () => {
     try {
       const response = await fetch('https://cgi.cse.unsw.edu.au/~cs6080/raw/data/info.json')
       const data = await response.json()
-      const resetScore = data.score
-      localStorage.setItem('gamesWon', resetScore)
-      setGamesWon(resetScore)
+      localStorage.setItem('gamesWon', 0)
+      setGamesWon(0)
     } catch (error) {
       console.error('Error fetching reset score:', error)
       localStorage.setItem('gamesWon', '0')
